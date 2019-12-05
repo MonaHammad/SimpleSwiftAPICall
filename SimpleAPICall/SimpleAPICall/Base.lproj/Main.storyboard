@@ -23,22 +23,33 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eL9-ex-4bV">
-                                <rect key="frame" x="187" y="433" width="40" height="30"/>
+                                <rect key="frame" x="187" y="387.5" width="40" height="30"/>
                                 <state key="normal" title="POST"/>
                                 <connections>
                                     <action selector="postCalled:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iOb-Fx-ns4"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here the get response will be displayed" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vha-vf-NaG">
+                                <rect key="frame" x="57" y="327" width="300.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="woe-2V-LOs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="228" id="BhE-Ov-s97"/>
-                            <constraint firstItem="eL9-ex-4bV" firstAttribute="top" secondItem="woe-2V-LOs" secondAttribute="bottom" constant="131" id="FpN-bc-Cw9"/>
                             <constraint firstItem="woe-2V-LOs" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="HMU-X4-ljP"/>
+                            <constraint firstItem="vha-vf-NaG" firstAttribute="top" secondItem="woe-2V-LOs" secondAttribute="bottom" constant="25" id="Je1-qf-SIh"/>
+                            <constraint firstItem="vha-vf-NaG" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="nhr-Mp-9An"/>
                             <constraint firstItem="eL9-ex-4bV" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="otY-O3-cGZ"/>
+                            <constraint firstItem="eL9-ex-4bV" firstAttribute="top" secondItem="vha-vf-NaG" secondAttribute="bottom" constant="40" id="yd2-GV-fdh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="getResponseLabel" destination="vha-vf-NaG" id="MqG-so-60s"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

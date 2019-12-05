@@ -10,19 +10,32 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var getResponseLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
     @IBAction func getCalled(_ sender: Any) {
-        let url = URL(string: "https://httpbin.org/get")!
+        getRequest(url: "https://httpbin.org/get") {[weak self] (data, response, error) in
+            if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                DispatchQueue.main.async {
+                    self?.getResponseLabel.text = dataString
+                }
+            }
+        }
+    }
+    
+    func getRequest(url: String, completion: @escaping (Data?, URLResponse?, Error?)-> Void){
+        let url = URL(string: url)!
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 print("error: \(error)")
+                completion(nil, nil, error)
             } else {
                 if let response = response as? HTTPURLResponse {
                     print("statusCode: \(response.statusCode)")
+                    completion(data, response, nil)
                 }
                 if let data = data, let dataString = String(data: data, encoding: .utf8) {
                     print("data: \(dataString)")
